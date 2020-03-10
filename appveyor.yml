@@ -1,4 +1,12 @@
-before_build:
+version: '1.0.{build}'
+
+test_script:
   - cmd: ECHO this is batch
   - ps: Write-Host "This is PowerShell"
-  - pwsh: Write-Host "This is PowerShell Core"
+
+on_success:
+  - ps: |
+      if ($true)
+      {
+        Write-Host "Success"
+      }
